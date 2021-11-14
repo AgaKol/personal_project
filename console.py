@@ -11,3 +11,5 @@ import repositories.owner_repository as owner_repository
 # result = owner_repository.select_all()
 # for row in result:
 #      print(row.__dict__)
+# result = owner_repository.select_one(1)
+# print(result.__dict__)

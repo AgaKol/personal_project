@@ -17,3 +17,12 @@ def select_all():
         owner = Owner(row['name'], row['address'], row['phone'], row['email'], row['registered'], row['id'])
         owners.append(owner)
     return owners
+
+def select_one(id):
+    owner = None
+    sql = "SELECT * FROM owners WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        owner = Owner(result['name'], result['address'], result['phone'], result['email'], result['registered'], result['id'])
+    return owner
