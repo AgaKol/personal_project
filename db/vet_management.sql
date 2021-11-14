@@ -22,9 +22,20 @@ CREATE TABLE vets (
     speciality VARCHAR(255)
 );
 
-CREATE TABLE treatment (
+CREATE TABLE treatments (
     id SERIAL PRIMARY KEY,
     advice TEXT,
     meds VARCHAR(255),
     price INT
 );
+
+CREATE TABLE animals (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    species VARCHAR(255),
+    dob VARCHAR(255),
+    symptoms TEXT,
+    treatment_id INT REFERENCES treatments(id),
+    owner_id INT REFERENCES owners(id),
+    vet_id INT REFERENCES vets(id)
+)
