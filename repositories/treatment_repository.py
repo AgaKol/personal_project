@@ -8,3 +8,12 @@ def save(treatment):
     id = result[0]['id']
     treatment.id = id
     return treatment
+
+def select_all():
+    treatments = []
+    sql = "SELECT * FROM treatments"
+    result = run_sql(sql)
+    for row in result:
+        treatment = Treatment(row['advice'], row['meds'], row['price'], row['id'])
+        treatments.append(treatment)
+    return treatments
