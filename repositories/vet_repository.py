@@ -17,3 +17,12 @@ def select_all():
         vet = Vet(row['name'], row['address'], row['phone'], row['email'], row['speciality'], row['id'])
         vets.append(vet)
     return vets
+
+def select_one(id):
+    vet = None
+    sql = "SELECT * FROM vets WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        vet = Vet(result['name'], result['address'], result['phone'], result['email'], result['speciality'], result['id'])
+    return vet

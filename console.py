@@ -18,6 +18,8 @@ import repositories.vet_repository as vet_repository
 
 # vet1 = Vet("Jenny Williams", "2 Rand Street PK3 4MN Dundee", "073485659", "j.jones@mail.com", "dogs")
 # vet_repository.save(vet1)
-result = vet_repository.select_all()
-for row in result:
-    print(row.__dict__)
+# result = vet_repository.select_all()
+# for row in result:
+#     print(row.__dict__)
+# result = vet_repository.select_one(1)
+# print(result.__dict__)
