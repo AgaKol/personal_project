@@ -26,3 +26,7 @@ def select_one(id):
     if result is not None:
         owner = Owner(result['name'], result['address'], result['phone'], result['email'], result['registered'], result['id'])
     return owner
+
+def delete_all():
+    sql = "DELETE FROM owners"
+    run_sql(sql)
