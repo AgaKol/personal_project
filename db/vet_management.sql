@@ -21,3 +21,10 @@ CREATE TABLE vets (
     email VARCHAR(255),
     speciality VARCHAR(255)
 );
+
+CREATE TABLE treatment (
+    id SERIAL PRIMARY KEY,
+    advice TEXT,
+    meds VARCHAR(255),
+    price INT
+);
