@@ -38,3 +38,8 @@ def select_one(id):
         vet = vet_repository.select_one(result['vet_id'])
         animal = Animal(result['name'], result['species'], result['dob'], result['symptoms'], owner, treatment, vet, result['id'])
     return animal
+
+def delete_all():
+    sql = "DELETE FROM animals"
+    run_sql(sql)
+
