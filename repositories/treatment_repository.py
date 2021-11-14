@@ -26,3 +26,7 @@ def select_one(id):
     if result is not None:
         treatment = Treatment(result['advice'], result['meds'], result['price'], result['id'])
     return treatment
+
+def delete_all():
+    sql = "DELETE FROM treatments"
+    run_sql(sql)
