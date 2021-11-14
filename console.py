@@ -13,3 +13,4 @@ import repositories.owner_repository as owner_repository
 #      print(row.__dict__)
 # result = owner_repository.select_one(1)
 # print(result.__dict__)
+# owner_repository.delete_one(1)

@@ -30,3 +30,8 @@ def select_one(id):
 def delete_all():
     sql = "DELETE FROM owners"
     run_sql(sql)
+
+def delete_one(id):
+    sql = "DELETE FROM owners WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
