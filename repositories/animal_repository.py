@@ -14,3 +14,15 @@ def save(animal):
     id = result[0]['id']
     animal.id = id
     return animal
+
+def select_all():
+    animals = []
+    sql = "SELECT * FROM animals"
+    result = run_sql(sql)
+    for row in result:
+        treatment = treatment_repository.select_one(row['treatment_id'])
+        owner = owner_repository.select_one(row['owner_id'])
+        vet = vet_repository.select_one(row['vet_id'])
+        animal = Animal(row['name'], row['species'], row['dob'], row['symptoms'], owner, treatment, vet, row['id'])
+        animals.append(animal)
+    return animals
