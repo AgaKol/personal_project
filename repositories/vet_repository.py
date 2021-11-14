@@ -35,3 +35,8 @@ def delete_one(id):
     sql = "DELETE FROM vets WHERE id = %s"
     values = [id]
     run_sql(values, id)
+
+def update(vet):
+    sql = "UPDATE vets SET (name, address, phone, email, speciality) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [vet.name, vet.address, vet.phone, vet.email, vet.speciality, vet.id]
+    run_sql(sql, values)
