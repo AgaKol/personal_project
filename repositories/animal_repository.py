@@ -26,3 +26,15 @@ def select_all():
         animal = Animal(row['name'], row['species'], row['dob'], row['symptoms'], owner, treatment, vet, row['id'])
         animals.append(animal)
     return animals
+
+def select_one(id):
+    animal = None
+    sql = "SELECT * FROM animals WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        treatment = treatment_repository.select_one(result['treatment_id'])
+        owner = owner_repository.select_one(result['owner_id'])
+        vet = vet_repository.select_one(result['vet_id'])
+        animal = Animal(result['name'], result['species'], result['dob'], result['symptoms'], owner, treatment, vet, result['id'])
+    return animal
