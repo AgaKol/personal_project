@@ -26,6 +26,12 @@ def select_one(id):
     if result is not None:
         vet = Vet(result['name'], result['address'], result['phone'], result['email'], result['speciality'], result['id'])
     return vet
+
 def delete_all():
     sql = "DELETE FROM vets"
     run_sql(sql)
+
+def delete_one(id):
+    sql = "DELETE FROM vets WHERE id = %s"
+    values = [id]
+    run_sql(values, id)
