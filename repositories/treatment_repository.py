@@ -17,3 +17,12 @@ def select_all():
         treatment = Treatment(row['advice'], row['meds'], row['price'], row['id'])
         treatments.append(treatment)
     return treatments
+
+def select_one(id):
+    treatment = None
+    sql = "SELECT * FROM treatments WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
+    if result is not None:
+        treatment = Treatment(result['advice'], result['meds'], result['price'], result['id'])
+    return treatment
