@@ -18,10 +18,13 @@ import repositories.treatment_repository as treatment_repository
 # print(result.__dict__)
 # owner_repository.delete_one(1)
 
-# vet1 = Vet("Jenny Williams", "2 Rand Street PK3 4MN Dundee", "073485659", "j.jones@mail.com", "dogs")
-# vet_repository.save(vet1)
+vet1 = Vet("Jenny Williams", "2 Rand Street PK3 4MN Dundee", "073485659", "j.jones@mail.com", "dogs")
+vet2 = Vet("Marie Williams", "2 Rand Street PK3 4MN Dundee", "073485659", "j.jones@mail.com", "cats")
+vet_repository.save(vet1)
+vet_repository.save(vet2)
 # result = vet_repository.select_all()
 # for row in result:
 #     print(row.__dict__)
 # result = vet_repository.select_one(1)
 # print(result.__dict__)
+
