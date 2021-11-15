@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <p>{{vet.name}}</p>
+    <hr>
+    <p>Address: {{vet.address}}</p>
+    <p>Phone number: {{vet.phone}}</p>
+    <p>Vet email address: {{vet.email}}</p>
+    <p>Vet speciality: {{vet.speciality}}</p>
+    <p><a href="/vets/{{vet.id}}/edit">Update details</a></p>
+</div>
+{% endblock %}

@@ -10,3 +10,13 @@ def vets():
     vets = vet_repository.select_all()
     print (vets)
     return render_template("/vets/index.html", vets = vets)
+
+@vet_blueprint.route('/vets/<id>', methods = ["GET"])
+def show_vet(id):
+    vet = vet_repository.select_one(id)
+    return render_template("vets/show.html", vet = vet)
+
+@vet_blueprint.route("/vets/<id>/edit", methods = ["GET"])
+def edit_vet(id):
+    vet = vet_repository.select_one(id)
+    return render_template("vets/edit.html", vet = vet, vets = vets)
