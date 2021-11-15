@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for owner in owners %}
+    <div class="owner">
+        <div class="content">
+            {{owner.name}}
+            <div class="owner details">
+                <p>Phone number: {{owner.phone}}</p>
+                <p>Email address: {{owner.email}}</p>
+                <p><a href="/owners/{{owner.id}}">See details</a></p>
+                <hr>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

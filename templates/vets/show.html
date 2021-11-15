@@ -8,5 +8,12 @@
     <p>Vet email address: {{vet.email}}</p>
     <p>Vet speciality: {{vet.speciality}}</p>
     <p><a href="/vets/{{vet.id}}/edit">Update details</a></p>
+    <form class = "delete_form" action="/vets/{{vet.id}}/delete" method="post">
+        <p><button>Delete entry</button></p>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Warning!</strong> Clicking the Delete button will permanently remove the record from the database.
+        </div>
+    </form>
 </div>
 {% endblock %}

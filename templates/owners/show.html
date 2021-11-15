@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <p>{{owner.name}}</p>
+    <hr>
+    <p>Address: {{owner.address}}</p>
+    <p>Phone number: {{owner.phone}}</p>
+    <p>Email address: {{owner.email}}</p>
+    <p>Registration status:
+        {% if owner.registered == True %}
+        Registered {% endif %}
+        {% if owner.registered == False %}
+        Not registered {% endif %}
+    </p>
+    <p><a href="/owners/{{owner.id}}/edit">Update details</a></p>
+    <form class = "delete_form" action="/owners/{{owner.id}}/delete" method="post">
+        <p><button>Delete entry</button></p>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Warning!</strong> Clicking the Delete button will permanently remove the record from the database.
+        </div>
+    </form>
+</div>
+{% endblock %}
