@@ -16,6 +16,11 @@ def show_animal(id):
     animal = animal_repository.select_one(id)
     return render_template("pets/show.html", animal = animal)
 
+@animals_blueprint.route("/pets/<id>/delete", methods = ["POST"])
+def delete_animal(id):
+    animal_repository.delete_one(id)
+    return redirect("/pets")
+
 @animals_blueprint.route("/pets/<id>/edit", methods = ["GET"])
 def edit_animal(id):
     animal = animal_repository.select_one(id)
