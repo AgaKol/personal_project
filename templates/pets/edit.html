@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<p>{{animal.name}}</p>
 <form action="/pets/{{animal.id}}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{animal.name}}" readonly>
+    </div>
+    <div>
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" value="{{animal.species}}" readonly>
+    </div>
+    <div>
+        <label for="dob">Date of birth:</label>
+        <input type="text" name="dob" id="dob" value="{{animal.dob}}" readonly>
+    </div>
+    <div>
+        <label for="owner">Owner:</label>
+        <input type="text" name="owner" id="owner" value="{{animal.owner.name}}" readonly>
+    </div>
     <div>
         <label for="symptoms">Symptoms:</label>
         <input type="text" id="symptoms" name="symptoms" value="{{animal.symptoms}}" required autofocus>
