@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for animal in animals %}
+    <div class ="animal">
+        <div class="content">
+            {{animal.name}}
+            <div class="animal_details">
+                Species: {{animal.species}}<br>
+                Date of birth: {{animal.dob}}<br>
+                Owner: {{animal.owner.name}}<br>
+                Contact details: {{animal.owner.phone}}<br>
+                {{animal.owner.address}}<br>
+                Symptoms: {{animal.symptoms}}<br>
+                Treatment: {{animal.treatment.advice}}<br>
+                Under care of: {{animal.vet.name}}
+            </div>
+         </div>
+    </div>
+{% endfor %}
+{% endblock %}
