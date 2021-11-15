@@ -13,3 +13,10 @@ def animals():
 def show_animal(id):
     animal = animal_repository.select_one(id)
     return render_template("pets/show.html", animal = animal)
+@animals_blueprint.route("/pets/<id>/edit", methods = ["GET"])
+def edit_animal(id):
+    animal = animal_repository.select_one(id)
+    vets = vet_repository.select_all()
+    owners = owner_repository.select_all()
+    treatments = treatment_repository.select_all()
+    return render_template("pets/edit.html", animal = animal, vets = vets, owners = owners, treatments = treatments)

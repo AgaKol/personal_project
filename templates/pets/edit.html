@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<p>{{animal.name}}</p>
+<form action="/pets/{{animal.id}}" method="post">
+    <div>
+        <label for="symptoms">Symptoms:</label>
+        <input type="text" id="symptoms" name="symptoms" value="{{animal.symptoms}}" required autofocus>
+    </div>
+    <div>
+        <label for="treatment">Recommended treatment:</label>
+        <input type="text" id="treatment", name="treatment" value="{{animal.treatment.advice}}" required>
+    </div>
+    <div>
+        <label for="meds">Recommended medication:</label>
+        <input type="text" id="meds" name="meds" value="{{animal.treatment.meds}}">
+    </div>
+    <div>
+        <label for="vet">Assigned to:</label>
+        <select id="vet_id" name="vet">
+            {% for vet in vets %}
+                <option value="{{vet.id}}">
+                    {{vet.name}}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+</form>
+{% endblock %}
+    
