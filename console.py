@@ -6,6 +6,8 @@ from models.animal import Animal
 
 import repositories.owner_repository as owner_repository
 import repositories.vet_repository as vet_repository
+import repositories.animal_repository as animal_repository
+import repositories.treatment_repository as treatment_repository
 
 # owner1 = Owner("James Jones", "1 Rand Street PK3 4MN Dundee", "074939484", "j.jones@mail.com")
 # owner_repository.save(owner1)

@@ -1,7 +1,9 @@
 from flask import Flask, app, render_template
 from controllers.animals_controller import animals_blueprint
+from controllers.vets_controller import vet_blueprint
 app = Flask(__name__)
 app.register_blueprint(animals_blueprint)
+app.register_blueprint(vet_blueprint)
 
 @app.route('/')
 def home():
