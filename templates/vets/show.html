@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div>
     <p>{{vet.name}}</p>
     <hr>
@@ -7,6 +8,13 @@
     <p>Phone number: {{vet.phone}}</p>
     <p>Vet email address: {{vet.email}}</p>
     <p>Vet speciality: {{vet.speciality}}</p>
+    <p>Animals under care:
+        {% for animal in animals %}
+            {% if animal.vet.id == vet.id %}
+                {{animal.name}}
+            {% endif%}
+        {% endfor %}
+    </p>
     <p><a href="/vets/{{vet.id}}/edit">Update details</a></p>
     <form class = "delete_form" action="/vets/{{vet.id}}/delete" method="post">
         <p><button>Delete entry</button></p>

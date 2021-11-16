@@ -6,6 +6,13 @@
     <p>Address: {{owner.address}}</p>
     <p>Phone number: {{owner.phone}}</p>
     <p>Email address: {{owner.email}}</p>
+    <p>Pets: 
+        {% for animal in animals%}
+            {% if animal.owner.id == owner.id %}
+                {{animal.name}}
+            {% endif%}
+        {% endfor%}
+    </p>
     <p>Registration status:
         {% if owner.registered == True %}
         Registered {% endif %}

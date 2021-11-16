@@ -14,7 +14,8 @@ def owners():
 @owners_blueprint.route('/owners/<id>', methods = ["GET"])
 def show_owner(id):
     owner = owner_repository.select_one(id)
-    return render_template("owners/show.html", owner = owner)
+    animals = animal_repository.select_all()
+    return render_template("owners/show.html", owner = owner, animals = animals)
 
 @owners_blueprint.route("/owners/<id>/delete", methods = ["POST"])
 def delete_owner(id):
