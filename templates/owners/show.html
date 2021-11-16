@@ -20,6 +20,7 @@
         Not registered {% endif %}
     </p>
     <p><a href="/owners/{{owner.id}}/edit">Update details</a></p>
+    <p><a href="/owners/{{owner.id}}/add_pet">Add a new pet</a></p>
     <form class = "delete_form" action="/owners/{{owner.id}}/delete" method="post">
         <p><button>Delete entry</button></p>
         <div class="alert">

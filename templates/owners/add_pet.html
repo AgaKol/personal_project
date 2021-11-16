@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if owner.registered == True %}
+    <form action="/owners" method="post">
+        <div>
+            <label for="name">Pet's name:</label>
+            <input type="text" id="name" name="name" placeholder="Pet's name" required autofocus>
+        </div>
+        <div>
+            <label for="species">Species:</label>
+            <input type="text" id="species" name="species" placeholder="Species" required>
+        </div>
+        <div>
+            <label for="dob">Date of birth:</label>
+            <input type="text" id="dob" name="dob" placeholder="Date of birth" required>
+        </div>
+        <div>
+            <label for="symptoms">Symptoms:</label>
+            <input type="text" id="symptoms" name="symptoms" placeholder="Symptoms" required>
+        </div>
+        <div>
+            <label for="treatment">Recommended treatment:</label>
+            <select id='treatment' name="treatment_id">
+                <option value="" disabled selected hidden>Choose recommended treatment</option>
+                {% for treatment in treatments %}
+                    <option value="{{treatment.id}}">
+                        {{treatment.advice}}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="vet">Assign to:</label>
+            <select id='vet' name="vet_id">
+                <option value="" disabled selected hidden>Choose a practisioner</option>
+                {% for vet in vets %}
+                    <option value="{{vet.id}}">
+                        {{vet.name}}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit">Add a new pet</button>
+    </form>
+{% else %}
+The owner is not registered with our practice. They need to register before adding any pets.
+{% endif %}
+
+{% endblock %}
