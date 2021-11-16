@@ -6,21 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7ae46fcd64.js" crossorigin="anonymous"></script>
     <title>Creature Comfort</title>
 </head>
 <body>
     <div>
     <header>
+        <div class="header">
+            <img src="/static/img/logo.jpg" width="150" height="150" alt="logo">
+            <h1>Creature Comfort Management System</h1>
+        </div>
         <nav>
             <ul class="menu">
-                <li><img src="/static/img/logo.jpg" width="120" height="120" alt="logo"></li>
-                <li><a href="/">Home</a></li>
-                <li><a href="/pets">Registered Pets</a></li>
-                <li><a href="/owners">Our Clients</a></li>
-                <li><a href="/vets">Our Staff</a></li>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/pets"><i class="fas fa-paw"></i>Registered Pets</a></li>
+                <li><a href="/owners"><i class="fas fa-user"></i>Our Clients</a></li>
+                <li><a href="/vets"><i class="fas fa-user-md"></i>Our Staff</a></li>
             </ul>
         </nav>
-      </header>
+    </header>
     <main>
         {% block content %}
         {% endblock %}

@@ -66,3 +66,16 @@ button {
     margin-top: 30px;
     font-size: 15px;
 }
+.header img {
+    float: left;
+}
+.header h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+    color: #2A3264;
+}
+i {
+    padding-right: 10px;
+    color: #2A3264;
+}
