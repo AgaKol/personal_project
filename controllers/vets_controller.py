@@ -37,20 +37,3 @@ def update_vet(id):
 def delete_vet(id):
     vet_repository.delete_one(id)
     return redirect("/vets")
-
-
-@vet_blueprint.route("/vets/new", methods = ["GET"])
-def new_vet():
-    return render_template("/vets/new.html")
-
-@vet_blueprint.route("/vets", methods=["POST"])
-
-def create_vet():
-    name = request.form["name"]
-    address = request.form["address"]
-    phone = request.form["phone"]
-    email = request.form["email"]
-    speciality = request.form["speciality"]
-    vet = Vet(name, address, phone, email, speciality)
-    vet_repository.save(vet)
-    return redirect("/vets")

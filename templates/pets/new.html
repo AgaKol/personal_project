@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/pets" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+    </div>
+    <div>
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" placeholder="Species" required>
+    </div>
+    <div>
+        <label for="dob">Date of birth:</label>
+        <input type="text" id="dob" name="dob" placeholder="Date of birth" required>
+    </div>
+    <div>
+        <label for="symptoms">Symptoms:</label>
+        <input type="text" id="symptoms" name="symptoms" placeholder="Symptoms" required>
+    </div>
+    <div>
+        <label for="owner_name">Owner's name:</label>
+        <input type="text" id="owner_name" name="owner_name" placeholder="Owner's name" required>
+    </div>
+    <div>
+        <label for="owner_address">Owner's address:</label>
+        <input type="text" id="owner_address" name="owner_address" placeholder="Owner's address" required>
+    </div>
+    <div>
+        <label for="owner_phone">Owner's phone number:</label>
+        <input type="tel" id="owner_phone" name="owner_phone" placeholder="Owner's phone number" required>
+    </div>
+    <div>
+        <label for="owner_email">Owner's email address:</label>
+        <input type="email" id="owner_email" name="owner_email" placeholder="Owner's email address" required>
+    </div>
+    <div>
+        <label for="treatment">Recommended treatment:</label>
+        <select id='treatment' name="treatment_id">
+            <option value="" disabled selected hidden>Choose recommended treatment</option>
+            {% for treatment in treatments %}
+                <option value="{{treatment.id}}">
+                    {{treatment.advice}}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="vet">Assign to:</label>
+        <select id='vet' name="vet_id">
+            <option value="" disabled selected hidden>Choose a practisioner</option>
+            {% for vet in vets %}
+                <option value="{{vet.id}}">
+                    {{vet.name}}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Add a new patient</button>
+</form>
+
+{% endblock %}

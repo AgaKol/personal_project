@@ -5,7 +5,7 @@
 }
 .menu li {
     display: inline;
-    font-size: 20px;
+    font-size: 25px;
     padding: 15px;
     text-decoration: none;
 }
@@ -27,4 +27,42 @@
 }
 .closebtn:hover {
     color: black;
+}
+footer {
+    text-align: center;
+    color: white;
+    background-color: steelblue;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 15px;
+    position: fixed;
+}
+
+a {
+    text-decoration: none;
+    color: steelblue;
+    font-weight: bold;
+    font-size: 18px;
+}
+a:hover {
+    background-color: steelblue;
+    color: white;
+}
+body {
+    margin-bottom: 90px;
+    font-family: Helvetica;
+    font-size: 16px;
+}
+main {
+    margin-top: 50px;
+}
+button {
+    background-color:steelblue;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 15px;
 }
