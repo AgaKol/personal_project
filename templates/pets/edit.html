@@ -14,12 +14,8 @@
         <input type="text" name="dob" id="dob" value="{{animal.dob}}" readonly>
     </div>
     <div>
-        <label for="owner">Owner:</label>
-        <input type="text" name="owner" id="owner" value="{{animal.owner.name}}" readonly>
-    </div>
-    <div>
         <label for="owner">Owner</label>
-        <select id='owner' name="owner_id">
+        <select id='owner' name="owner_id" required autofocus>
             {% for owner in owners %}
                 <option value="{{owner.id}}">
                     {{owner.name}}
@@ -29,11 +25,11 @@
     </div>
     <div>
         <label for="symptoms">Symptoms:</label>
-        <input type="text" id="symptoms" name="symptoms" value="{{animal.symptoms}}" required autofocus>
+        <input type="text" id="symptoms" name="symptoms" value="{{animal.symptoms}}" required>
     </div>
     <div>
         <label for="treatment">Recommended treatment:</label>
-        <select id='treatment' name="treatment_id">
+        <select id='treatment' name="treatment_id" required>
             {% for treatment in treatments %}
                 <option value="{{treatment.id}}">
                     {{treatment.advice}}
@@ -43,7 +39,7 @@
     </div>
     <div>
         <label for="vet">Assigned to:</label>
-        <select id='vet' name="vet_id">
+        <select id='vet' name="vet_id" required>
             {% for vet in vets %}
                 <option value="{{vet.id}}">
                     {{vet.name}}

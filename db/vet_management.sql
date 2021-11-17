@@ -35,7 +35,7 @@ CREATE TABLE animals (
     dob VARCHAR(255),
     symptoms TEXT,
     treatment_id INT REFERENCES treatments(id),
-    owner_id INT REFERENCES owners(id),
+    owner_id INT REFERENCES owners(id) ON DELETE CASCADE,
     vet_id INT REFERENCES vets(id)
 );
 

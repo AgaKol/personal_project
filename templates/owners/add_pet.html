@@ -45,6 +45,7 @@
     </form>
 {% else %}
 The owner is not registered with our practice. They need to register before adding any pets.
+<p><a href="/owners/{{owner.id}}/edit">Register the owner</a></p>
 {% endif %}
 
 {% endblock %}
