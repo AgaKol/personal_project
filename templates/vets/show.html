@@ -2,7 +2,7 @@
 {% block content %}
 
 <div>
-    <p><b>{{vet.name}}</b></p>
+    <p style="font-size: 18px;"><b>{{vet.name}}</b></p>
     <hr>
     <p>Address: {{vet.address}}</p>
     <p>Phone number: {{vet.phone}}</p>
@@ -11,7 +11,7 @@
     <p>Animals under care:
         {% for animal in animals %}
             {% if animal.vet.id == vet.id %}
-                {{animal.name}}
+                {{animal.name}},
             {% endif%}
         {% endfor %}
     </p>

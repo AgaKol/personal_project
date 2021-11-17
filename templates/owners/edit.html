@@ -19,7 +19,7 @@
     </div>
     <div>
         <label for="registered">Registration status:</label>
-        <select name="registered" id="registered">
+        <select name="registered" id="registered" required>
             <option value="true"
             {% if owner.registered == True %}
             selected="selected" {% endif %}>

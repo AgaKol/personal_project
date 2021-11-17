@@ -45,6 +45,21 @@ def adding_pet(id):
     treatments = treatment_repository.select_all()
     vets = vet_repository.select_all()
     if owner.registered == False:
-        return render_template("owners/add_pet.html", owner = owner)
+        return render_template("owners/add_pet.html", owner = owner, treatments = treatments, vets = vets)
     else:
         return render_template("/pets/new.html", treatments = treatments, vets = vets)
+
+@owners_blueprint.route("/owners/<id>/add_pet", methods = ["POST"])  
+def add_pet(id):
+    owner = owner_repository.select_one(id)
+    name = request.form["pet_name"]
+    species = request.form["species"]
+    dob = request.form["dob"]
+    symptoms = request.form["symptoms"]
+    treatment_id = request.form["treatment_id"]
+    treatment = treatment_repository.select_one(treatment_id)
+    vet_id = request.form["vet_id"]
+    vet = vet_repository.select_one(vet_id)
+    animal = Animal(name, species, dob, symptoms, owner, treatment, vet)
+    animal_repository.save(animal)
+    return redirect("/owners/show.html")

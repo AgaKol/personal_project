@@ -2,8 +2,25 @@
 {% block content %}
 <div class="cont">
     <div class="txt">
-        <p><b>{{animal.name}}</b></p>
+        <p style="font-size: 18px;"><b>{{animal.name}}</b></p>
         <hr>
+        <div class="img">
+            {% if animal.id == 1 %}
+                <img src="/static/img/cat1.jpg" alt="Cat picture" width="500" height="auto" style="float: right; margin: 10px 150px 50px 50px;">
+            {% endif %}
+            {% if animal.id == 2 %}
+                <img src="/static/img/dog2.jpg" alt="Dog picture" width="500" height="auto" style="float: right; margin: 10px 150px 50px 50px;">
+            {% endif %}
+            {% if animal.id == 3 %}
+                <img src="/static/img/cat3.jpg" alt="Cat picture" width="500" height="auto" style="float: right; margin: 10px 150px 50px 50px;">
+            {% endif %}
+            {% if animal.id == 4 %}
+                <img src="/static/img/dog4.jpeg" alt="Dog picture" width="200" height="auto" style="float: right; margin: 10px 150px 50px 50px;">
+            {% endif %}
+            {% if animal.id == 5 %}
+                <img src="/static/img/dog5.jpg" alt="Dog picture" width="500" height="auto" style="float: right; margin: 10px 150px 50px 50px;">
+            {% endif %}
+        </div>  
         <p>Species: {{animal.species}}</p>
         <p>Date of birth: {{animal.dob}}</p>
         <p>Owner's name: {{animal.owner.name}}</p>
@@ -13,23 +30,7 @@
         <p>Suggested treatment: {{animal.treatment.advice}}</p>
         <p>Currently under care of: {{animal.vet.name}}</p>
     </div>
-    <div class="img">
-        {% if animal.id == 1 %}
-            <img src="/static/img/cat1.jpg" alt="Cat picture" width="250" height="auto">
-        {% endif %}
-        {% if animal.id == 2 %}
-            <img src="/static/img/dog2.jpg" alt="Dog picture" width="250" height="auto">
-        {% endif %}
-        {% if animal.id == 3 %}
-            <img src="/static/img/cat3.jpg" alt="Cat picture" width="250" height="auto">
-        {% endif %}
-        {% if animal.id == 4 %}
-            <img src="/static/img/dog4.jpeg" alt="Dog picture" width="170" height="auto">
-        {% endif %}
-        {% if animal.id == 5 %}
-            <img src="/static/img/dog5.jpg" alt="Dog picture" width="250" height="auto">
-        {% endif %}
-    </div>  
+    
     <p><a href="/pets/{{animal.id}}/edit">Update details</a></p>
     <form class = "delete_form" action="/pets/{{animal.id}}/delete" method="post">
         <p><button>Delete entry</button></p>

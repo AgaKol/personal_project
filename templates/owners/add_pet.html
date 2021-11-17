@@ -2,50 +2,66 @@
 {% block content %}
 
 {% if owner.registered == True %}
-    <form action="/owners" method="post">
-        <div>
-            <label for="name">Pet's name:</label>
-            <input type="text" id="name" name="name" placeholder="Pet's name" required autofocus>
-        </div>
-        <div>
-            <label for="species">Species:</label>
-            <input type="text" id="species" name="species" placeholder="Species" required>
-        </div>
-        <div>
-            <label for="dob">Date of birth:</label>
-            <input type="text" id="dob" name="dob" placeholder="Date of birth" required>
-        </div>
-        <div>
-            <label for="symptoms">Symptoms:</label>
-            <input type="text" id="symptoms" name="symptoms" placeholder="Symptoms" required>
-        </div>
-        <div>
-            <label for="treatment">Recommended treatment:</label>
-            <select id='treatment' name="treatment_id">
-                <option value="" disabled selected hidden>Choose recommended treatment</option>
-                {% for treatment in treatments %}
-                    <option value="{{treatment.id}}">
-                        {{treatment.advice}}
-                    </option>
-                {% endfor %}
-            </select>
-        </div>
-        <div>
-            <label for="vet">Assign to:</label>
-            <select id='vet' name="vet_id">
-                <option value="" disabled selected hidden>Choose a practisioner</option>
-                {% for vet in vets %}
-                    <option value="{{vet.id}}">
-                        {{vet.name}}
-                    </option>
-                {% endfor %}
-            </select>
-        </div>
-        <button type="submit">Add a new pet</button>
-    </form>
+<form action="/owners/{{owner.id}}/add_pet" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{owner.name}}" readonly style="background-color: darkgray; opacity: 0.5;"> 
+    </div>
+    <div>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" value="{{owner.address}}" readonly style="background-color: darkgray; opacity: 0.5;">
+    </div>
+    <div>
+        <label for="phone">Phone number:</label>
+        <input type="tel" id="phone" name="phone" value="{{owner.phone}}" readonly style="background-color: darkgray; opacity: 0.5;">
+    </div>
+    <div>
+        <label for="email">Email address:</label>
+        <input type="email" id="email" name="email" value="{{owner.email}}" readonly style="background-color: darkgray; opacity: 0.5;">
+    </div>
+    <div>
+        <label for="pet_name">Pet's name:</label>
+        <input type="text" id="pet_name" name="name" placeholder="Pet's name" required autofocus>
+    </div>
+    <div>
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" placeholder="Species" required>
+    </div>
+    <div>
+        <label for="dob">Date of birth:</label>
+        <input type="text" id="dob" name="dob" placeholder="Date of birth" required>
+    </div>
+    <div>
+        <label for="symptoms">Symptoms:</label>
+        <input type="text" id="symptoms" name="symptoms" placeholder="Symptoms" required>
+    </div>
+    <div>
+        <label for="treatment">Recommended treatment:</label>
+        <select id='treatment' name="treatment_id" required>
+            <option value="" disabled selected hidden>Choose recommended treatment</option>
+            {% for treatment in treatments %}
+                <option value="{{treatment.id}}">
+                    {{treatment.advice}}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="vet">Assign to:</label>
+        <select id='vet' name="vet_id" required>
+            <option value="" disabled selected hidden>Choose a practisioner</option>
+            {% for vet in vets %}
+                <option value="{{vet.id}}">
+                    {{vet.name}}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Add a new patient</button>
+</form>
 {% else %}
-The owner is not registered with our practice. They need to register before adding any pets.
-<p><a href="/owners/{{owner.id}}/edit">Register the owner</a></p>
+<p style="text-align: center; margin-top: 100px; font-size: 18px;">The owner is NOT registered with our practice. They need to register before adding any pets.</p>
+<p style="text-align: center; margin-top: 75px;"><a href="/owners/{{owner.id}}/edit">Register the owner</a></p>
 {% endif %}
 
 {% endblock %}

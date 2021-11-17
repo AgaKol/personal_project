@@ -3,15 +3,15 @@
 <form action="/pets/{{animal.id}}" method="post">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{animal.name}}" readonly>
+        <input type="text" id="name" name="name" value="{{animal.name}}" readonly style="background-color: darkgray; opacity: 0.5;">
     </div>
     <div>
         <label for="species">Species:</label>
-        <input type="text" id="species" name="species" value="{{animal.species}}" readonly>
+        <input type="text" id="species" name="species" value="{{animal.species}}" readonly style="background-color: darkgray; opacity: 0.5;">
     </div>
     <div>
         <label for="dob">Date of birth:</label>
-        <input type="text" name="dob" id="dob" value="{{animal.dob}}" readonly>
+        <input type="text" name="dob" id="dob" value="{{animal.dob}}" readonly style="background-color: darkgray; opacity: 0.5;">
     </div>
     <div>
         <label for="owner">Owner</label>

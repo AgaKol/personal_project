@@ -36,7 +36,7 @@
     </div>
     <div>
         <label for="treatment">Recommended treatment:</label>
-        <select id='treatment' name="treatment_id">
+        <select id='treatment' name="treatment_id" required>
             <option value="" disabled selected hidden>Choose recommended treatment</option>
             {% for treatment in treatments %}
                 <option value="{{treatment.id}}">
@@ -47,7 +47,7 @@
     </div>
     <div>
         <label for="vet">Assign to:</label>
-        <select id='vet' name="vet_id">
+        <select id='vet' name="vet_id" required>
             <option value="" disabled selected hidden>Choose a practisioner</option>
             {% for vet in vets %}
                 <option value="{{vet.id}}">

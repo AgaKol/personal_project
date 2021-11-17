@@ -43,7 +43,8 @@ def update_animal(id):
     vet = vet_repository.select_one(vet_id)
     owner_id = request.form["owner_id"]
     owner = owner_repository.select_one(owner_id)
-    animal = Animal(name,species,dob,symptoms, owner, treatment, vet)
+    animal = Animal(name,species,dob,symptoms, owner, treatment, vet, id)
+    animal_repository.update(animal)
     return redirect("/pets")
 
 @animals_blueprint.route("/pets/new", methods = ["GET"])
