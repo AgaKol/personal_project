@@ -4,20 +4,14 @@
 {% if owner.registered == True %}
 <form action="/owners/{{owner.id}}/add_pet" method="post">
     <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{owner.name}}" readonly style="background-color: darkgray; opacity: 0.5;"> 
-    </div>
-    <div>
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" value="{{owner.address}}" readonly style="background-color: darkgray; opacity: 0.5;">
-    </div>
-    <div>
-        <label for="phone">Phone number:</label>
-        <input type="tel" id="phone" name="phone" value="{{owner.phone}}" readonly style="background-color: darkgray; opacity: 0.5;">
-    </div>
-    <div>
-        <label for="email">Email address:</label>
-        <input type="email" id="email" name="email" value="{{owner.email}}" readonly style="background-color: darkgray; opacity: 0.5;">
+        <label for="Owner">Owner</label>
+        <select name="owner_id" id="owner">
+            {% for owner in owners%}
+                <option value="{{owner.id}}">
+                    {{owner.name}}
+                </option>
+            {% endfor %}
+        </select>
     </div>
     <div>
         <label for="pet_name">Pet's name:</label>
